@@ -4,9 +4,9 @@ describe Secrets::Env do
   describe ".parse" do
     it "parses simple KEY=VALUE pairs" do
       result = Secrets::Env.parse(<<-ENV)
-      DATABASE_URL=postgres://localhost/test
-      API_KEY=abc123
-      ENV
+        DATABASE_URL=postgres://localhost/test
+        API_KEY=abc123
+        ENV
       result.should eq({
         "DATABASE_URL" => "postgres://localhost/test",
         "API_KEY"      => "abc123",
@@ -15,13 +15,13 @@ describe Secrets::Env do
 
     it "ignores comments and blank lines" do
       result = Secrets::Env.parse(<<-ENV)
-      # this is a comment
+        # this is a comment
 
-      KEY=value
+        KEY=value
 
-      # another comment
-      OTHER=42
-      ENV
+        # another comment
+        OTHER=42
+        ENV
       result.should eq({"KEY" => "value", "OTHER" => "42"})
     end
 
@@ -48,10 +48,10 @@ describe Secrets::Env do
 
     it "skips lines without an equals sign" do
       result = Secrets::Env.parse(<<-ENV)
-      VALID=yes
-      this is not a kv line
-      ALSO=valid
-      ENV
+        VALID=yes
+        this is not a kv line
+        ALSO=valid
+        ENV
       result.should eq({"VALID" => "yes", "ALSO" => "valid"})
     end
 

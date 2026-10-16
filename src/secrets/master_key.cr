@@ -119,7 +119,7 @@ module Secrets
           return KeychainMacOS.fetch(KEYCHAIN_ACCOUNT)
         end
       {% end %}
-      return nil unless File.exists?(IDENTITY_FILE)
+      return unless File.exists?(IDENTITY_FILE)
       File.read(IDENTITY_FILE).strip
     end
 

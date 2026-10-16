@@ -3,6 +3,10 @@
 :toc-title: Versions
 :toclevels: 2
 
+== v0.5.4 — 2026-10-16
+
+* ameba 1.7 et Crystal 1.22.0 en CI ; nouvelles règles appliquées, aucun changement de comportement.
+
 == v0.5.0 — 2026-05-10
 
 === Ajouté — `secrets env` pour `.env.age` (ferme la fuite `.env` en prod)
